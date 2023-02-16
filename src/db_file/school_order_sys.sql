@@ -11,7 +11,7 @@
  Target Server Version : 80031
  File Encoding         : 65001
 
- Date: 16/02/2023 15:39:22
+ Date: 16/02/2023 16:09:16
 */
 
 SET NAMES utf8mb4;
@@ -71,6 +71,25 @@ CREATE TABLE `canteen`  (
 -- ----------------------------
 -- Records of canteen
 -- ----------------------------
+INSERT INTO `canteen` VALUES (1, 1, 1, '美食街', 10);
+
+-- ----------------------------
+-- Table structure for contact
+-- ----------------------------
+DROP TABLE IF EXISTS `contact`;
+CREATE TABLE `contact`  (
+  `order_id` int NOT NULL,
+  `user_id` int NULL DEFAULT NULL,
+  `user_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `phone` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `address` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`order_id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of contact
+-- ----------------------------
+INSERT INTO `contact` VALUES (2, 1, '爱睡觉的猫', '45135', '1栋203');
 
 -- ----------------------------
 -- Table structure for food
@@ -139,6 +158,7 @@ CREATE TABLE `order_info`  (
 -- Records of order_info
 -- ----------------------------
 INSERT INTO `order_info` VALUES (1, 1, 1, 12, 10);
+INSERT INTO `order_info` VALUES (2, 2, 1, 2, 22);
 
 -- ----------------------------
 -- Table structure for order_table
@@ -152,14 +172,14 @@ CREATE TABLE `order_table`  (
   `price` int NULL DEFAULT NULL,
   `tips` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `state` int NULL DEFAULT NULL,
-  `order_time` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`order_id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of order_table
 -- ----------------------------
-INSERT INTO `order_table` VALUES (1, 1, 1, '2023-02-16 13:39:27', 10, 'dfa', 1, '2023-02-16 13:39:35');
+INSERT INTO `order_table` VALUES (1, 1, 1, '2023-02-16 13:39:27', 10, 'dfa', 1);
+INSERT INTO `order_table` VALUES (2, 1, 1, '2023-02-16 00:00:00', 20, '加辣', 0);
 
 -- ----------------------------
 -- Table structure for store
@@ -177,7 +197,7 @@ CREATE TABLE `store`  (
 -- ----------------------------
 -- Records of store
 -- ----------------------------
-INSERT INTO `store` VALUES (1, 'bus1', 1, '佳佳', '154');
+INSERT INTO `store` VALUES (1, 'bus1', 1, '佳佳小炒', '154');
 
 -- ----------------------------
 -- Table structure for store_food_view
