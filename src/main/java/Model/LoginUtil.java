@@ -107,7 +107,7 @@ public class LoginUtil {
            return false;
        }else {
            NormalUser normalUser=normalUserList.get(0);
-           LoginUtil.identity=normalUser.getId();
+           LoginUtil.identity=0;
            LoginUtil.name=normalUser.getName();
            LoginUtil.account=normalUser.getUserAccount();
            LoginUtil.gender=normalUser.getGender();

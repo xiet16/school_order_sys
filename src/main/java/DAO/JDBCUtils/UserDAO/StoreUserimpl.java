@@ -31,7 +31,7 @@ public class StoreUserimpl implements StoreUserDao{
             if (rs.next()) {
                 count = rs.getInt(1);
             }
-            rs=ps.executeQuery("select max(id) from store");
+            rs=ps.executeQuery("select max(store_id) from store");
             if(rs.next()){
                 maxId= rs.getInt(1);
             }
